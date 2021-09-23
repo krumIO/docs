@@ -54,6 +54,12 @@ ISOlinux: Press TAB during the countdown to "view available boot entries" and in
 
 Grub: Press e to enter a command line, and add the instruction `nomodeset text`
 
+### Blank screen during load (runtime)
+
+Like above, for some older machines additional parameters may need to be specified to the bootloader.
+
+Grub: Press e to enter a command line, and add the instruction `nomodeset`
+
 ### starting kubernetes: preparing server: init cluster datastore and https: no default routes found in "/proc/net/route" or "/proc/net/ipv6_route"
 
 The installation media may not use the same NIC interface names. In this case, during the bootloader press e
