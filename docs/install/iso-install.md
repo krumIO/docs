@@ -38,3 +38,29 @@ Note: This [video](https://youtu.be/97ADieBX6bE) shows a quick overview of the I
    ![iso-installed.png](iso-installed.png)
 1. User will be prompted to set the password for the default `admin` user on the first-time login.
    ![first-login.png](first-log-in.png)
+
+## Troubleshooting
+
+### {partitions} have been written, but we have been unable to inform the kernel of the change...
+
+Check your server user manual, you may need to disable write protection or use a bios-level boot option to specify installation of an operating system and its media.
+It may also help to format drives ahead of time, if there was already an operating system installed to the drive.
+
+### Blank screen during isolinux-based installation
+
+For some older machines, the installation media may appear to boot to a blank screen prior to the "Choose installation mode" screen as seen above.  In this case, additional parameters may need to be specified to the bootloader.
+
+ISOlinux: Press TAB during the countdown to "view available boot entries" and initiate a command prompt. If VGA is displayed as a boot entry, specify nomodeset with `vga nomodeset`, and press enter to continue installation.
+
+Grub: Press e to enter a command line, and add the instruction `nomodeset text`
+
+### Blank screen during load (runtime)
+
+Like above, for some older machines additional parameters may need to be specified to the bootloader.
+
+Grub: Press e to enter a command line, and add the instruction `nomodeset`
+
+### starting kubernetes: preparing server: init cluster datastore and https: no default routes found in "/proc/net/route" or "/proc/net/ipv6_route"
+
+The installation media may not use the same NIC interface names. In this case, during the bootloader press e
+https://github.com/harvester/harvester/issues/1200
